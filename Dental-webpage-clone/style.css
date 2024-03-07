@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    font-weight: 500;
+    background: none;
+}
+
+nav #nav1 a{
+    text-decoration: none;
+    color: black;
+    padding: 0.2em 0.4em;
+    border-radius: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.664);}
+
+nav #nav1 i{
+    padding: 0.2em 0.4em;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.664);
+}
+
+
+nav #nav2 h1{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+nav #nav3 button{
+    font-weight: 500;
+    border: 2px solid rgba(0, 0, 0, 0.664);
+    padding: 0.3em 0.5em;
+    border-radius: 50px;
+    background-color: white;
+}
+
+nav #nav3 button:nth-child(2){
+    background-color: orangered;
+    color: white;
+    border: none;
+}
+
+main>h1{
+    font-size: 6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+
+
+.image-box>#img1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    border-radius: 25px;
+    height: 340px;
+    width: 230px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 2;
+
+}
+.image-box>#img2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-20deg);
+    border-radius: 25px;
+    height: 340px;
+    width: 230px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 2;
+
+}
+.image-box>#img3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    border-radius: 25px;
+    height: 340px;
+    width: 230px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 2;
+
+}
+.image-box>#img4{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    height: 340px;
+    width: 230px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 2;
+}
+
+
+main > h5{
+    position: absolute;
+    bottom: 2em;
+    left: 1.4em;
+}
