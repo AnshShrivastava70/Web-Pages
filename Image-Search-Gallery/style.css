@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    color: var(--text-color);
+}
+
+:root{
+    --primary-color: rgb(249, 246, 250);
+    --primary-color: rgba(4, 4, 4, 0.975);
+    --text-color: white;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background: var(--primary-color);
+    position: relative;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s linear;
+}
+
+body.overlay-active::after{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    padding-left: 3em;
+    font-size: 1rem;
+    background-color: rgba(250, 235, 215, 0.153);
+}
+
+header i {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width: calc(100%-20%);
+}
+
+ul {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 25px;
+    margin: 0 20px;
+
+    li {
+        list-style: none;
+        cursor: pointer;
+    }
+
+    li:nth-child(3) {
+        display: flex;
+
+    }
+}
+
+#search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid gray;
+    border-radius: 30px;
+    background: rgba(128, 128, 128, 0.158);
+    z-index: 2;
+}
+
+#search input {
+    width: 88%;
+    height: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0 20px;
+    font-size: 1rem;
+}
+
+#search>button {
+    border-radius: 30px;
+    border: none;
+    background: none;
+    border-left: 2px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 90px;
+    outline: none;
+    text-align: center;
+    padding: 9px;
+    cursor: pointer;
+}
+
+#suggestions {
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    overflow: hidden;
+    background: var(--primary-color);
+    width: 85%;
+    max-height:  275.3px;
+    border-radius: 10px;
+    z-index: 4;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.2s ease;
+
+    i {
+        font-size: 1rem;
+        padding: 0 8px;
+    }
+}
+
+#searchInput:focus+#suggestions {
+    transform: scaleY(1);
+}
+
+#suggestions div {
+    padding: 8px 0;
+    cursor: pointer;
+    background-color: #fefcff29;
+    transition: all .1s linear;
+}
+
+#suggestions div:hover {
+    background: var(--primary-color);
+}
+
+#right-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+#right-nav>img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    max-width: 95%;
+    margin: 20px auto;
+    columns: 4;
+    column-gap: 10px;
+    z-index: 1;
+
+    figure {
+        position: relative;
+        max-width: 100%;
+        line-height: 0;
+        border-radius: 5px;
+        overflow: hidden;
+        break-inside: avoid;
+        margin-bottom: 10px;
+        z-index: 1;
+    }
+
+    figure:hover figcaption {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    figure:hover img {
+        opacity: .8;
+        cursor: pointer;
+    }
+}
+
+.container figure img {
+    max-width: 100%;
+    opacity: 1;
+    object-fit: cover;
+    background-color: white;
+    transition: all .3s linear;
+}
+
+.container figure figcaption {
+    position: absolute;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top,
+            rgba(26, 26, 26, 1) 0%,
+            rgba(26, 26, 26, 0.8) 10%,
+            rgba(26, 26, 26, 0.7) 20%,
+            rgba(26, 26, 26, 0.5) 30%,
+            rgba(26, 26, 26, 0.4) 40%,
+            rgba(26, 26, 26, 0.1) 70%,
+            rgba(26, 26, 26, 0) 100%);
+    color: white;
+    font-weight: 600;
+    font-size: .9rem;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+    z-index: 2;
+}
+
+@media (width < 1080px) {
+    .container {
+        columns: 3;
+    }
+}
+
+@media (width < 768px) {
+    .container {
+        columns: 2;
+    }
+}
+
+@media (width < 480px) {
+    .container {
+        columns: 1;
+    }
+}
